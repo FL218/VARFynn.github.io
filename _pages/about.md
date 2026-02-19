@@ -1,11 +1,12 @@
 ---
 permalink: /
-title: "👋 Welcome!"
 author_profile: true
-redirect_from: 
+redirect_from:
   - /about/
   - /about.html
 ---
+
+# 👋 Welcome!
 
 <!-- Add vertical space -->
 <p style="margin-bottom: 25px;"></p>
@@ -16,4 +17,4 @@ redirect_from:
 
 🖥️ As a **secondary research interest**, I am focusing on the efficient design of both the public sector and the welfare state in general. This research has been part of several consulting projects in the realm of IT Strategy, Information Security Controlling and Policy Evaluation.
 
-Do not hesitate to reach out to me via email ([info(at)fynn-lohre.com](mailto:info@fynn-lohre.com)) or [LinkedIn](www.linkedin.com/in/fynn-lohre).
+Do not hesitate to reach out to me via email ([flohre(at)econ.au.dk](mailto:flohre@econ.au.dk)) or [LinkedIn](https://www.linkedin.com/in/fynn-lohre).

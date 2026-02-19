@@ -22,6 +22,9 @@ main:
     
   - title: "CV"
     url: /cv/
+
+  - title: "LEVEL-UP Study (German)"
+    url: https://www.coll.mpg.de/level-up
     
   # - title: "Guide"
   #  url: /markdown/

@@ -1,4 +1,28 @@
 <script src="{{ base_path }}/assets/js/main.min.js"></script>
 
+<script>
+  (function() {
+    var btn = document.getElementById('dark-mode-toggle');
+    var icon = document.getElementById('dark-mode-icon');
+    if (!btn || !icon) return;
+
+    function updateIcon() {
+      icon.className = document.documentElement.classList.contains('dark-mode')
+        ? 'fas fa-sun'
+        : 'fas fa-moon';
+    }
+
+    updateIcon();
+
+    btn.addEventListener('click', function() {
+      document.documentElement.classList.toggle('dark-mode');
+      try {
+        localStorage.setItem('darkMode', document.documentElement.classList.contains('dark-mode'));
+      } catch(e) {}
+      updateIcon();
+    });
+  })();
+</script>
+
 {% include analytics.html %}
 {% include /comments-providers/scripts.html %}
