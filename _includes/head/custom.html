@@ -29,4 +29,196 @@
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+<!-- Dark mode: init before body renders to prevent flash -->
+<style>
+  /* Toggle button */
+  .dark-mode-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: 1px solid rgba(122, 130, 136, 0.4);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7a8288;
+    font-size: 0.8em;
+    transition: border-color 0.2s ease, color 0.2s ease;
+    z-index: 30;
+    padding: 0;
+    line-height: 1;
+  }
+  .dark-mode-toggle:hover {
+    border-color: #7a8288;
+    color: #3d4144;
+  }
+
+  /* Dark mode overrides */
+  html.dark-mode body {
+    background-color: #1a1a1a;
+    color: #c8c8c8;
+  }
+  html.dark-mode .masthead {
+    background: #1a1a1a;
+    border-bottom-color: #333;
+  }
+  html.dark-mode .masthead a {
+    color: #c8c8c8;
+  }
+  html.dark-mode .masthead a:hover {
+    color: #fff;
+  }
+  html.dark-mode .greedy-nav button {
+    background: #1a1a1a;
+  }
+  html.dark-mode .navicon,
+  html.dark-mode .navicon:before,
+  html.dark-mode .navicon:after {
+    background: #c8c8c8;
+  }
+  html.dark-mode .hidden-links {
+    background: #242424;
+    border: 1px solid #333;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+  html.dark-mode .hidden-links a {
+    color: #c8c8c8;
+  }
+  html.dark-mode a {
+    color: #7ec8e3;
+  }
+  html.dark-mode a:hover,
+  html.dark-mode a:active {
+    color: #a5d8ef;
+  }
+  html.dark-mode .page__footer {
+    background-color: #111;
+    color: #888;
+    border-top: 1px solid #333;
+  }
+  html.dark-mode .page__footer a {
+    color: #7ec8e3;
+  }
+  html.dark-mode .page__footer-copyright {
+    color: #666;
+  }
+  html.dark-mode hr {
+    border-top-color: #333;
+  }
+  html.dark-mode blockquote {
+    border-left-color: #444;
+    color: #999;
+  }
+  html.dark-mode p > code,
+  html.dark-mode a > code,
+  html.dark-mode li > code,
+  html.dark-mode figcaption > code,
+  html.dark-mode td > code {
+    background: #2a2a2a;
+    border-color: #444;
+    color: #d4d4d4;
+  }
+  html.dark-mode pre {
+    background: #2a2a2a;
+    border: 1px solid #444;
+    color: #d4d4d4;
+  }
+  html.dark-mode .highlight {
+    background: #2a2a2a;
+  }
+  html.dark-mode table {
+    color: #c8c8c8;
+  }
+  html.dark-mode thead {
+    background: #2a2a2a;
+    border-bottom-color: #444;
+  }
+  html.dark-mode th,
+  html.dark-mode td {
+    border-color: #333;
+  }
+  html.dark-mode tr:nth-child(even) {
+    background: #222;
+  }
+  html.dark-mode h1,
+  html.dark-mode h2,
+  html.dark-mode h3,
+  html.dark-mode h4,
+  html.dark-mode h5,
+  html.dark-mode h6 {
+    color: #e8e8e8;
+  }
+  html.dark-mode .author__name {
+    color: #e0e0e0;
+  }
+  html.dark-mode .author__bio {
+    color: #999;
+  }
+  html.dark-mode .author__urls-wrapper .btn {
+    background: #333;
+    border-color: #555;
+    color: #c8c8c8;
+  }
+  html.dark-mode .sidebar .author__urls a {
+    color: #7ec8e3;
+  }
+  html.dark-mode .archive__item-title a {
+    color: #7ec8e3;
+  }
+  html.dark-mode .archive__item-excerpt {
+    color: #999;
+  }
+  html.dark-mode .btn {
+    background: #333;
+    border-color: #555;
+    color: #c8c8c8;
+  }
+  html.dark-mode .btn:hover {
+    background: #444;
+    color: #fff;
+  }
+  html.dark-mode figcaption {
+    color: #888;
+  }
+  html.dark-mode abbr[title],
+  html.dark-mode abbr[data-original-title] {
+    border-bottom-color: #555;
+  }
+  html.dark-mode ins,
+  html.dark-mode u {
+    border-bottom-color: #555;
+  }
+  html.dark-mode input,
+  html.dark-mode textarea,
+  html.dark-mode select {
+    background: #2a2a2a;
+    color: #c8c8c8;
+    border-color: #444;
+  }
+  html.dark-mode .dark-mode-toggle {
+    border-color: rgba(180, 180, 180, 0.4);
+    color: #b0b8be;
+  }
+  html.dark-mode .dark-mode-toggle:hover {
+    border-color: #b0b8be;
+    color: #fff;
+  }
+</style>
+<script>
+  (function() {
+    try {
+      var saved = localStorage.getItem('darkMode');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'true' || (saved === null && prefersDark)) {
+        document.documentElement.classList.add('dark-mode');
+      }
+    } catch(e) {}
+  })();
+</script>
+
 <!-- end custom head snippets -->
